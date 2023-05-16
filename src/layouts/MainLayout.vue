@@ -11,25 +11,15 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-toolbar-title> Quasar App </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
+        <q-item-label header> Essential Links </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -46,72 +36,72 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
+import { defineComponent, ref } from "vue";
+import EssentialLink from "components/EssentialLink.vue";
 
 const linksList = [
   {
-    title: 'My Educations',
+    title: "My Educations",
     caption: "Najot Ta'lim IT Center",
-    icon: 'school',
-    link: 'https://najottalim.uz'
+    icon: "school",
+    link: "https://najottalim.uz",
   },
   {
-    title: 'My Github account',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/Azimkhoja'
+    title: "My Github account",
+    caption: "github.com/quasarframework",
+    icon: "code",
+    link: "https://github.com/Azimkhoja",
   },
   {
-    title: 'My Telegram profile',
-    caption: 'For contacts and information',
-    icon: 'telegram',
-    link: 'https://t.me/Azimkhoja_A'
+    title: "My Telegram profile",
+    caption: "For contacts and information",
+    icon: "telegram",
+    link: "https://t.me/Azimkhoja_A",
   },
-  
+
   {
-    title: 'LinkedIn profile',
-    caption: 'LinkedIn.com ',
-    icon: 'record_voice_over',
-    link: 'https://www.linkedin.com/in/azimkhoja-ahmadkhonov-814577238/'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: "LinkedIn profile",
+    caption: "LinkedIn.com ",
+    icon: "record_voice_over",
+    link: "https://www.linkedin.com/in/azimkhoja-ahmadkhonov-814577238/",
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
+    title: "Twitter",
+    caption: "@quasarframework",
+    icon: "rss_feed",
+    link: "https://twitter.quasar.dev",
   },
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: "Facebook",
+    caption: "@QuasarFramework",
+    icon: "public",
+    link: "https://facebook.quasar.dev",
   },
-]
+  {
+    title: "Quasar Awesome",
+    caption: "Community Quasar projects",
+    icon: "favorite",
+    link: "https://awesome.quasar.dev",
+  },
+];
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
-    EssentialLink
+    EssentialLink,
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
 
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
+});
 </script>
