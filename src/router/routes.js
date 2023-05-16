@@ -3,11 +3,20 @@ const routes = [
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
     children: [
-      { path: "", component: () => import("pages/IndexPage.vue") },
       {
-        path: "/add-product",
+        path: "",
+        name: "IndexPage",
+        component: () => import("pages/IndexPage.vue"),
+      },
+      {
+        path: "add-product",
         name: "AddProduct",
         component: () => import("pages/AddProduct.vue"),
+      },
+      {
+        path: "edit-product/:id",
+        name: "EditProduct",
+        component: () => import("pages/EditProduct.vue"),
       },
     ],
   },

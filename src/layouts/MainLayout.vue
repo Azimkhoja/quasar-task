@@ -51,28 +51,29 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
+    title: 'My Educations',
+    caption: "Najot Ta'lim IT Center",
     icon: 'school',
-    link: 'https://quasar.dev'
+    link: 'https://najottalim.uz'
   },
   {
-    title: 'Github',
+    title: 'My Github account',
     caption: 'github.com/quasarframework',
     icon: 'code',
-    link: 'https://github.com/quasarframework'
+    link: 'https://github.com/Azimkhoja'
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'My Telegram profile',
+    caption: 'For contacts and information',
+    icon: 'telegram',
+    link: 'https://t.me/Azimkhoja_A'
   },
+  
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
+    title: 'LinkedIn profile',
+    caption: 'LinkedIn.com ',
     icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    link: 'https://www.linkedin.com/in/azimkhoja-ahmadkhonov-814577238/'
   },
   {
     title: 'Twitter',
@@ -91,7 +92,7 @@ const linksList = [
     caption: 'Community Quasar projects',
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
-  }
+  },
 ]
 
 export default defineComponent({

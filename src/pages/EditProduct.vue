@@ -5,7 +5,7 @@
         <q-input
           filled
           type="number"
-          v-model="formProduct.product_type_id"
+          v-model="editProduct.product_type_id"
           label="Product Type ID"
           lazy-rules
           :rules="[
@@ -16,7 +16,7 @@
 
         <q-input
           filled
-          v-model="formProduct.name_uz"
+          v-model="editProduct.name_uz"
           label="Product Name"
           :rules="[
             (val) =>
@@ -26,7 +26,7 @@
         <q-input
           filled
           type="number"
-          v-model="formProduct.cost"
+          v-model="editProduct.cost"
           label="Product Cost"
           :rules="[
             (val) =>
@@ -36,7 +36,7 @@
         <q-input
           filled
           type="text"
-          v-model="formProduct.address"
+          v-model="editProduct.address"
           label="Address"
           :rules="[
             (val) =>
@@ -61,16 +61,17 @@
 
 <script setup>
 import { productStore } from "src/store/productStore";
-import { ref } from "vue";
+import { ref , onMounted} from "vue";
 import { useQuasar } from "quasar";
 import moment from "moment";
-import { useRouter, useRoute } from "vue-router";
+import { useRouter , useRoute} from "vue-router";
 
 const router = useRouter();
+const route = useRoute();
 const $q = useQuasar();
 const data = productStore();
 
-const formProduct = ref({
+const editProduct = ref({
   product_type_id: null,
   name_uz: "",
   cost: null,
@@ -78,14 +79,26 @@ const formProduct = ref({
   created_date: moment().format(),
 });
 
-const onSubmit = async () => {
-  await data.addProduct(formProduct.value);
+onMounted(async () => {
+      getProduct(route.params.id)
+    })
 
-  router.push({ name: "IndexPage" });
-  $q.notify({
-    message: data.message,
-    icon: "check",
-    color: "positive",
-  });
+    
+const getProduct = async () => {
+  const res = await data.getproducts()
+  const product  = res.filter( value => {
+    return value.id  == +route.params.id
+  })
+  editProduct.value = product[0]
+}
+const onSubmit = async () => {
+    await data.updateProduct(editProduct.value)
+    router.push({ name: "IndexPage" });
+    $q.notify({
+      message: data.message,
+      icon: "check",
+      color: "blue-4",
+    });
+  
 };
 </script>
